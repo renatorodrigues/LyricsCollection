@@ -79,7 +79,19 @@ function getArtistsRecordings($artists_mb_ids, $pdo) {
       $sth_new_song->bindParam('mbid', $song_mb_id);
       $sth_new_song->bindParam('title', $song_title);
       $sth_new_song->bindParam('artist_id', $mb_id);
-      $sth_new_song->execute();
+      try{
+        $sth_new_song->execute();
+      }
+      catch(PDOException $e) {
+        if ($e->errorInfo[1] == 1062) {
+          // duplicate entry, do something else
+          Log::d('MusicBrainz', 'Duplicated key for song ' . $song_title . ' with mb_id ' . $song_mb_id . ' artist: ' . $artist_name . ' with mb_id = ' . $mb_id);
+        }
+        else {
+          // an error other than duplicate entry occurred
+          Log::d('MusicBrainz', 'Exception for song ' . $song_title . ' with mb_id ' . $song_mb_id . ' artist: ' . $artist_name . ' with mb_id = ' . $mb_id);
+        }
+      } 
     }
     
     sleep(1);

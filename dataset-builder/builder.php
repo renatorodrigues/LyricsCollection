@@ -16,7 +16,7 @@ $verbose = true;
 Log::setEnabled($verbose);
 
 // LastFM
-$artists = scrapingLastFM();
+/*$artists = scrapingLastFM();
 //$artists = array('The Shins', 'My Chemical Romance', 'Queens of the Stone Age', 'Ke$ha');
 
 // MusicBrainz
@@ -26,6 +26,8 @@ $artists_recordings = getArtistsRecordings($artists_mb_ids, $pdo);
 Log::d('MusicBrainz', 'MusicBrainz finished.');
 
 // ChartLyrics
-$artists_lyrics = getArtistsLyrics($artists_recordings, $pdo);
+$artists_lyrics = getArtistsLyrics($artists_recordings, $pdo);*/
+
+getArtistsLyricsFromDB($pdo);
 
 ?>
