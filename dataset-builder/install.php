@@ -21,6 +21,7 @@ CREATE TABLE Songs (
   title VARCHAR(255),
   artist_id VARCHAR(36),
   lyric_id BIGINT UNSIGNED,
+  checked BIT DEFAULT 0,
   FOREIGN KEY (artist_id) REFERENCES Artists(mb_id) ON DELETE CASCADE,
   FOREIGN KEY (lyric_id) REFERENCES Lyrics(id) ON DELETE SET NULL
 ) ENGINE INNODB CHARACTER SET utf8 COLLATE utf8_general_ci;
