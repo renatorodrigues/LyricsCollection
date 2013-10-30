@@ -3092,3 +3092,84 @@ ChartLyrics initialized.
 Fetched songs: 47701
 ================================================================================
 
+30-10-2013 18:09:29 | DEBUG | ChartLyrics ======================================
+SearchLyric: No valid words left in contains list, this could be caused by stop
+words.
+
+================================================================================
+
+30-10-2013 18:15:34 | DEBUG | ChartLyrics ======================================
+ChartLyrics initialized.
+================================================================================
+
+30-10-2013 18:15:36 | DEBUG | ChartLyrics ======================================
+Fetched songs: 47651
+================================================================================
+
+30-10-2013 18:15:36 | DEBUG | ChartLyrics ======================================
+SearchLyric: No valid words left in contains list, this could be caused by stop
+words.
+
+================================================================================
+
+30-10-2013 18:27:45 | DEBUG | ChartLyrics ======================================
+ChartLyrics initialized.
+================================================================================
+
+30-10-2013 18:27:46 | DEBUG | ChartLyrics ======================================
+Fetched songs: 47649
+================================================================================
+
+30-10-2013 18:27:46 | DEBUG | getArtistsLyricsFromDB ===========================
+Searching song Girlfriend (Portugese clean version) of artist Avril Lavigne
+================================================================================
+
+30-10-2013 18:27:47 | DEBUG | getArtistsLyricsFromDB ===========================
+Lyric for song Girlfriend (Portugese clean version) of artist Avril Lavigne
+don't exist
+================================================================================
+
+30-10-2013 18:27:47 | DEBUG | getArtistsLyricsFromDB ===========================
+Searching song Rock 'n' Roll of artist Avril Lavigne
+================================================================================
+
+30-10-2013 18:28:07 | DEBUG | getArtistsLyricsFromDB ===========================
+Lyric for song Rock 'n' Roll of artist Avril Lavigne don't exist
+================================================================================
+
+30-10-2013 18:28:07 | DEBUG | getArtistsLyricsFromDB ===========================
+Searching song When You’re Gone (acoustic) of artist Avril Lavigne
+================================================================================
+
+30-10-2013 18:28:27 | DEBUG | getArtistsLyricsFromDB ===========================
+Lyric for song When You’re Gone (acoustic) of artist Avril Lavigne don't exist
+================================================================================
+
+30-10-2013 18:28:27 | DEBUG | getArtistsLyricsFromDB ===========================
+Searching song In the Studio of artist Avril Lavigne
+================================================================================
+
+30-10-2013 18:28:48 | DEBUG | getArtistsLyricsFromDB ===========================
+Lyric for song In the Studio of artist Avril Lavigne don't exist
+================================================================================
+
+30-10-2013 18:28:48 | DEBUG | getArtistsLyricsFromDB ===========================
+Searching song Touch the Sky (live) of artist Avril Lavigne
+================================================================================
+
+30-10-2013 18:29:09 | DEBUG | getArtistsLyricsFromDB ===========================
+Lyric for song Touch the Sky (live) of artist Avril Lavigne don't exist
+================================================================================
+
+30-10-2013 18:29:09 | DEBUG | getArtistsLyricsFromDB ===========================
+Searching song Black Star of artist Avril Lavigne
+================================================================================
+
+30-10-2013 18:29:29 | DEBUG | getArtistsLyricsFromDB ===========================
+Lyric for song Black Star of artist Avril Lavigne don't exist
+================================================================================
+
+30-10-2013 18:29:29 | DEBUG | getArtistsLyricsFromDB ===========================
+Searching song Best Years of Our Lives of artist Avril Lavigne
+================================================================================
+

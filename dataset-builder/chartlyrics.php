@@ -137,6 +137,8 @@ function getArtistsLyricsFromDB($pdo) {
   foreach ($results as $song) {
     $lyric = false;
     $params = null;
+
+    Log::d("getArtistsLyricsFromDB", 'Searching song ' . $song['title'] . ' of artist ' . $song['name']);
     while ($params === null) {
       $params = getLyric($song['name'], $song['title']);
       
@@ -146,7 +148,9 @@ function getArtistsLyricsFromDB($pdo) {
     }
 
     if ($params !== false) {
+      Log::d("getArtistsLyricsFromDB", 'Results returned for song ' . $song['title'] . ' of artist ' . $song['name']);
       $content = false;
+      Log::d("getArtistsLyricsFromDB", 'Getting lyric for song ' . $song['title'] . ' of artist ' . $song['name']);
       while ($content === false) {
         $content = getLyricContent($params);
         
@@ -169,6 +173,7 @@ function getArtistsLyricsFromDB($pdo) {
       $exists = $sth_lyric_exists->fetchAll();
       
       if(count($exists) > 0) {
+        Log::d("getArtistsLyricsFromDB", 'Lyric already existes for song ' . $song['title'] . ' of artist ' . $song['name']);
         $sth_update_song->execute();
       }
       else {
@@ -177,12 +182,14 @@ function getArtistsLyricsFromDB($pdo) {
         $sth_update_song->execute();
 
         $pdo->commit();
+        Log::d("getArtistsLyricsFromDB", 'Saved lyric for song ' . $song['title'] . ' of artist ' . $song['name']);
 
       }
     }
     else {
       $sth_update_song_checked->bindParam('mb_id', $song['song_mb_id']);
       $sth_update_song_checked->execute();
+      Log::d("getArtistsLyricsFromDB", 'Lyric for song ' . $song['title'] . ' of artist ' . $song['name']. ' don\'t exist');
     }
   }
 
