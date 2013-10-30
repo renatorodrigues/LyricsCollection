@@ -2,13 +2,25 @@
 require_once('api_calls.php');
 
 function getLyric($artist_term, $song_term) {
+  $error_string = "SearchLyric: No valid words left in contains list, this could be caused by stop words.\n";
 
   $search_results = api_call("http://api.chartlyrics.com/apiv1.asmx/SearchLyric", array('artist'=>$artist_term,'song'=>$song_term));
   if ($search_results === false) {
     return null;
   }
+  else if($search_results === $error_string) {
+    Log::d('ChartLyrics', $error_string);
+    return false;
+  }
 
-  $search_results = new SimpleXmlElement($search_results);
+
+  try {
+    $search_results = new SimpleXmlElement($search_results);
+  }
+  catch(Exception $e) {
+    Log::d('ChartLyrics', $search_results);
+    return false;
+  }
   $search_results = $search_results->SearchLyricResult;
 
   foreach ($search_results as $result) {
@@ -71,7 +83,7 @@ function getArtistsLyrics(&$artists_recordings, $pdo) {
         $params = getLyric($artist_name, $recording_name);
         
         if ($params === null) {
-          sleep(10);
+          sleep(1);
         }
       }
 
@@ -81,7 +93,7 @@ function getArtistsLyrics(&$artists_recordings, $pdo) {
           $content = getLyricContent($params);
           
           if ($content === false) {
-            sleep(10);
+            sleep(1);
           }
         }
         
@@ -129,7 +141,7 @@ function getArtistsLyricsFromDB($pdo) {
       $params = getLyric($song['name'], $song['title']);
       
       if ($params === null) {
-        sleep(10);
+        sleep(1);
       }
     }
 
@@ -139,7 +151,7 @@ function getArtistsLyricsFromDB($pdo) {
         $content = getLyricContent($params);
         
         if ($content === false) {
-          sleep(10);
+          sleep(1);
         }
       }
 
