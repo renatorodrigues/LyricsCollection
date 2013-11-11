@@ -1,0 +1,20 @@
+<dataConfig>
+<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost/lyrics_db" user="root" password=""/>
+
+	<document>
+		<entity name="song" query="SELECT * FROM songs WHERE lyric_id IS NOT NULL">
+			<field column="mb_id" name="song_mb_id" />
+			<field column="title" name="song_title" />
+
+			<entity name="artist" query="SELECT name FROM artists WHERE mb_id = '${song.artist_id}' ">
+				<field column="name" name="artist_name" />
+			</entity>
+
+			<entity name="lyric" query="SELECT content, url FROM lyrics WHERE id = '${song.lyric_id}' ">
+				<field column="content" name="lyric_content" />
+				<field column="url" name="lyric_url" />
+			</entity>
+		</entity>
+	</document>
+
+</dataConfig>
