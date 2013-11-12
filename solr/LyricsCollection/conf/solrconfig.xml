@@ -3,14 +3,6 @@
 
   <luceneMatchVersion>4.5</luceneMatchVersion>
 
-  <lib dir="../../../SolrLibraries/contrib/langid/lib/" regex=".*\.jar" />
-  <lib dir="../../../SolrLibraries/dist/" regex="solr-langid-\d.*\.jar" />
-
-  <lib dir="../../../SolrLibraries/contrib/dataimporthandler/lib" regex=".*\.jar" />
-  <lib dir="../../../SolrLibraries/dist/" regex="solr-dataimporthandler-.*\.jar" />
-
-  <lib dir="../../../SolrLibraries/dist/" regex="mysql-connector-java-.*\.jar" />
-
   <dataDir>${solr.data.dir:}</dataDir>
 
   <directoryFactory name="DirectoryFactory" 
