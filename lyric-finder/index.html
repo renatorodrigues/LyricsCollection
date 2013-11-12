@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>LyricFinder</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/jquery-1.10.2.min.js"></script>
+  </head>
+  <body>
+    <h1>LyricFinder</h1>
+    <form id="search-form" name="search-form">
+      <ol>
+        <li>
+          <label id="q-label" for="q">Search for:</label>
+          <input id="q" name="q[]"> in
+          <select name="f[]">
+            <option value="all_fields">all fields</option>
+            <option value="artist_name">artist name</option>
+            <option value="song_title">song title</option>
+            <option value="lyric">lyric</option>
+          </select>
+        </li>
+      </ol>
+      <p><a id="add-search-field" href="#">Add search field</a> | <input type="submit" value="Search"></p>
+    </form>
+    <h2>Search results</h2>
+    <p><span clasS="num">0</span> results</p>
+    <table id="results">
+      <thead>
+        <tr>
+          <th>Song</th>
+          <th>Artist</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="song"></td>
+          <td class="artist"></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      $(document).ready(function() {
+        var base_url = 'http://localhost:8983/solr/LyricsCollection/select';
+
+        $('#add-search-field').click(function(e) {
+          e.preventDefault();
+          $('#search-form ol').append('<li><select class="connector" name="c[]"><option value="AND">and</option><option value="OR">or</option><option value="AND NOT">and not</option></select> <input id="q" name="q[]"> in <select name="f[]"><option value="all_fields">all fields</option><option value="artist_name">artist name</option><option value="song_title">song title</option><option value="lyric">lyric</option></select> <a class="remove-search-field" href="">Remove</a></li>');
+        });
+
+        $('#search-form ol').on('click', '.remove-search-field', function(e) {
+          e.preventDefault();
+          
+          $(this).parent().remove();
+        });
+
+        $results_num_span = $('.num');
+        $results_tbody = $('#results tbody');
+
+        function showSearchResults(data) {
+          $results_num_span.text(data.response.numFound);
+          console.log(data.response);
+          $results_tbody.empty();
+          for (var i = 0; i < data.response.docs.length; ++i) {
+            var document = data.response.docs[i];
+            $results_tbody.append('<tr><td class="song">' + document.song_title + '</td><td class="artist">' + document.artist_name + '</td>');
+          }
+        }
+
+        $('#search-form').submit(function(e) {
+          var fields = $(this).serializeArray();
+          //console.log(fields);
+          /*
+          $.each($('#search-form').serializeArray(), function(i, field) {
+            alert(field.name + ' : ' + field.value);
+          })
+          */
+          var request_url = base_url + '?q=boi' + '&wt=json&indent=true';
+
+          $.ajax({
+            type: 'GET',
+            url: request_url,
+            dataType: 'jsonp',
+            jsonp: 'json.wrf',
+            cache: false
+          })
+          .success(function(data) {
+            showSearchResults(data);
+          });
+
+          e.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>
