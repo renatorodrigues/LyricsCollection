@@ -3,17 +3,8 @@
 
   <luceneMatchVersion>4.5</luceneMatchVersion>
 
-  <lib dir="../../../SolrLibraries/contrib/extraction/lib" regex=".*\.jar" />
-  <lib dir="../../../SolrLibraries/dist/" regex="solr-cell-\d.*\.jar" />
-
-  <!--lib dir="../../../SolrLibraries/contrib/clustering/lib/" regex=".*\.jar" />
-  <lib dir="../../../SolrLibraries/dist/" regex="solr-clustering-\d.*\.jar" /-->
-
   <lib dir="../../../SolrLibraries/contrib/langid/lib/" regex=".*\.jar" />
   <lib dir="../../../SolrLibraries/dist/" regex="solr-langid-\d.*\.jar" />
-
-  <!--lib dir="../../../SolrLibraries/contrib/velocity/lib" regex=".*\.jar" />
-  <lib dir="../../../SolrLibraries/dist/" regex="solr-velocity-\d.*\.jar" /-->
 
   <lib dir="../../../SolrLibraries/contrib/dataimporthandler/lib" regex=".*\.jar" />
   <lib dir="../../../SolrLibraries/dist/" regex="solr-dataimporthandler-.*\.jar" />
@@ -163,20 +154,6 @@
        </lst>
   </requestHandler>
 
-  <requestHandler name="/update/extract" 
-                  startup="lazy"
-                  class="solr.extraction.ExtractingRequestHandler" >
-    <lst name="defaults">
-      <str name="lowernames">true</str>
-      <str name="uprefix">ignored_</str>
-
-      <!-- capture link hrefs but ignore div attributes -->
-      <str name="captureAttr">true</str>
-      <str name="fmap.a">links</str>
-      <str name="fmap.div">ignored_</str>
-    </lst>
-  </requestHandler>
-
   <requestHandler name="/admin/" 
                   class="solr.admin.AdminHandlers" />
 
@@ -194,10 +171,6 @@
      <str name="echoParams">explicit</str> 
      <str name="echoHandler">true</str>
     </lst>
-  </requestHandler>
-  
-  <requestHandler name="/replication" class="solr.ReplicationHandler" > 
-
   </requestHandler>
 
   <requestHandler name="/dataimport" class="org.apache.solr.handler.dataimport.DataImportHandler">
@@ -387,12 +360,6 @@
      -->
     <!-- str name="content-type">text/plain; charset=UTF-8</str -->
   </queryResponseWriter>
-  
-  <!--
-     Custom response writers can be declared as needed...
-    -->
-    <!--queryResponseWriter name="velocity" class="solr.VelocityResponseWriter" startup="lazy"/-->
-  
 
   <!-- XSLT response writer transforms the XML output by any xslt file found
        in Solr's conf/xslt directory.  Changes to xslt files are checked for
