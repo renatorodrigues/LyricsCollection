@@ -1,9 +1,7 @@
 <schema name="chart_lyrics" version="1.5">
 
   <fields>
-
-    <field indexed="true" name="_version_" stored="true" type="long"/>
-
+    
     <field indexed="true" multiValued="false" name="song_mb_id" stored="true" type="string"/>
     <field indexed="true" name="song_title" stored="true" type="text_ws"/>
     <field indexed="true" name="artist_name" stored="true" type="text_ws"/>
