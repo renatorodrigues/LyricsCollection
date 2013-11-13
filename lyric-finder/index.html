@@ -5,79 +5,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>LyricFinder</title>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="js/jquery-1.10.2.min.js"></script>
   </head>
   <body>
-    <h1>LyricFinder</h1>
-    <form id="search-form" name="search-form">
-      <ol>
-        <li>
-          <label id="q-label" for="q">Search for:</label>
-          <input id="q" name="q[]"> in
-          <select name="f[]">
-            <option value="all_fields">all fields</option>
-            <option value="artist_name">artist name</option>
-            <option value="song_title">song title</option>
-            <option value="lyric">lyric</option>
-          </select>
-        </li>
-      </ol>
-      <p><a id="add-search-field" href="#">Add search field</a> | <input type="submit" value="Search"></p>
-    </form>
-    <h2>Search results</h2>
-    <p><span clasS="num">0</span> results</p>
-    <table id="results">
-      <thead>
-        <tr>
-          <th>Song</th>
-          <th>Artist</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="song"></td>
-          <td class="artist"></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="wrapper">
+      <h1 class="title">LyricFinder</h1>
+      <form id="search-form" name="search-form">
+        <ol>
+          <li>
+            <label id="q-label" for="q">Search for</label>
+            <input id="q" class="q" name="q[]"> in
+            <select class="f" name="f[]">
+              <option value="all_fields">all fields</option>
+              <option value="artist_name">artist name</option>
+              <option value="song_title">song title</option>
+              <option value="lyric_content">lyric</option>
+            </select>
+          </li>
+        </ol>
+        <p><a id="add-search-field" href="#">Add search field</a> | <input type="submit" value="Search"></p>
+      </form>
+      <div class="search-results">
+        <h2>Search results</h2>
+        <p><span class="num">0</span> results</p>
+        <table id="results">
+          <thead>
+            <tr>
+              <th>Song</th>
+              <th>Artist</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <script>
       $(document).ready(function() {
         var base_url = 'http://localhost:8983/solr/LyricsCollection/select';
 
         $('#add-search-field').click(function(e) {
           e.preventDefault();
-          $('#search-form ol').append('<li><select class="connector" name="c[]"><option value="AND">and</option><option value="OR">or</option><option value="AND NOT">and not</option></select> <input id="q" name="q[]"> in <select name="f[]"><option value="all_fields">all fields</option><option value="artist_name">artist name</option><option value="song_title">song title</option><option value="lyric">lyric</option></select> <a class="remove-search-field" href="">Remove</a></li>');
+          $('#search-form ol').append('<li><select class="c" name="c"><option value="AND">and</option><option value="OR">or</option><option value="AND NOT">and not</option></select> <input id="q" class="q" name="q[]"> in <select class="f" name="f[]"><option value="all_fields">all fields</option><option value="artist_name">artist name</option><option value="song_title">song title</option><option value="lyric_content">lyric</option></select> <a class="remove-search-field" href="">Remove</a></li>');
         });
 
         $('#search-form ol').on('click', '.remove-search-field', function(e) {
           e.preventDefault();
           
           $(this).parent().remove();
+          $('#search-form').submit();
         });
 
         $results_num_span = $('.num');
         $results_tbody = $('#results tbody');
 
         function showSearchResults(data) {
-          $results_num_span.text(data.response.numFound);
           console.log(data.response);
+
+          $('.search-results').show();
           $results_tbody.empty();
-          for (var i = 0; i < data.response.docs.length; ++i) {
-            var document = data.response.docs[i];
-            $results_tbody.append('<tr><td class="song">' + document.song_title + '</td><td class="artist">' + document.artist_name + '</td>');
+
+          $results_num_span.text(data.response.numFound);
+
+          if (data.response.numFound > 0) {
+            for (var i = 0; i < data.response.docs.length; ++i) {
+              var document = data.response.docs[i];
+              $results_tbody.append('<tr><td class="song"><a href="' + document.lyric_url + '" target="_blank">' + document.song_title + '</td><td class="artist">' + document.artist_name + '</a></td>');
+            }
+          } else {
+            $results_tbody.append('<tr><td colspan="2">No results</td></tr>');
           }
         }
 
+        function searchPair(keywords, field) {
+          if (field == "all_fields") {
+            return keywords;
+          } else {
+            return field + ':' + keywords;
+          }
+        }
+
+        $('#search-form').on('keyup change', 'input, select', function() {
+          $('#search-form').submit();
+        });
+
         $('#search-form').submit(function(e) {
-          var fields = $(this).serializeArray();
-          //console.log(fields);
-          /*
-          $.each($('#search-form').serializeArray(), function(i, field) {
-            alert(field.name + ' : ' + field.value);
-          })
-          */
-          var request_url = base_url + '?q=boi' + '&wt=json&indent=true';
+          var connectors = new Array();
+          var keywords = new Array();
+          var fields = new Array();
+
+          var $search_fields = $('li', this);
+
+          keywords.push($('.q', $search_fields.first()).val());
+          fields.push($('.f', $search_fields.first()).val());
+
+          $.each($search_fields.slice(1), function() {
+            connectors.push($('.c', this).val());
+            keywords.push($('.q', this).val());
+            fields.push($('.f', this).val());
+          });
+
+          var query_string = searchPair(keywords[0], fields[0]);
+          for (var i = 0; i < connectors.length; ++i) {
+            query_string += ' ' + connectors[i] + ' ' + searchPair(keywords[i + 1], fields[i + 1]);
+          }
+
+          console.log(query_string);
+
+          var request_url = base_url + '?q=' + query_string + '&wt=json&indent=true';
 
           $.ajax({
             type: 'GET',
