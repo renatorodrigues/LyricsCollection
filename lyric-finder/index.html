@@ -16,7 +16,7 @@
         <ol>
           <li>
             <label id="q-label" for="q">Search for</label>
-            <input id="q" class="q" name="q[]"> in
+            <input id="q" class="q" name="q[]" autofocus> in
             <select class="f" name="f[]">
               <option value="all_fields">all fields</option>
               <option value="artist_name">artist name</option>
@@ -25,12 +25,18 @@
             </select>
           </li>
         </ol>
-        <p><a id="add-search-field" href="#">Add search field</a> | <input type="submit" value="Search"></p>
+        <p><a id="add-search-field" href="#">Add search field</a> | <input class="btn" type="submit" value="Search"></p>
       </form>
       <div class="search-results">
         <h2>Search results</h2>
-        <p><span class="num">0</span> results</p>
-        <table id="results">
+        <p class="results-num"><span class="num">0</span> results</p>
+        <table class="results">
+          <colgroup class="song">
+            <col>
+          </colgroup>
+          <colgroup class="artist">
+            <col>
+          </colgroup>
           <thead>
             <tr>
               <th>Song</th>
@@ -59,7 +65,7 @@
         });
 
         $results_num_span = $('.num');
-        $results_tbody = $('#results tbody');
+        $results_tbody = $('table.results tbody');
 
         function showSearchResults(data) {
           console.log(data.response);
@@ -114,7 +120,7 @@
 
           console.log(query_string);
 
-          var request_url = base_url + '?q=' + query_string + '&wt=json&indent=true';
+          var request_url = base_url + '?q=' + query_string + '&rows=10000000&wt=json&indent=true';
 
           $.ajax({
             type: 'GET',
