@@ -20,7 +20,6 @@
 
   <types>
     <fieldType name="string" class="solr.StrField" />
-    <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>
 
     <!-- A text field that only splits on whitespace for exact case-insensitve matching of words -->
     <fieldType class="solr.TextField" name="text_ws" positionIncrementGap="100">
