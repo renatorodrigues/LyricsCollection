@@ -7,7 +7,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY dm "http://www.semanticweb.org/dapi/ontologies/music#" >
+    <!ENTITY dmusic "http://www.semanticweb.org/dapi/ontologies/music#" >
 ]>
 
 
@@ -15,10 +15,10 @@
      xml:base="http://www.semanticweb.org/dapi/ontologies/music"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:dm="http://www.semanticweb.org/dapi/ontologies/music#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dmusic="http://www.semanticweb.org/dapi/ontologies/music#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/dapi/ontologies/music">
         <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
     </owl:Ontology>
@@ -36,107 +36,189 @@
     
 
 
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64 -->
+
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64">
+        <rdfs:label xml:lang="en">musicProperty</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_23b21801_a556_4f11_b8ed_fd06ab800d50 -->
 
-    <owl:ObjectProperty rdf:about="&dm;OWLObjectProperty_23b21801_a556_4f11_b8ed_fd06ab800d50">
-        <rdfs:label xml:lang="en">genre</rdfs:label>
-        <rdfs:domain rdf:resource="&dm;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
-        <rdfs:domain rdf:resource="&dm;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93"/>
-        <rdfs:domain rdf:resource="&dm;OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728"/>
-        <rdfs:domain rdf:resource="&dm;OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da"/>
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_23b21801_a556_4f11_b8ed_fd06ab800d50">
+        <rdfs:label xml:lang="en">hasGenre</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+        <rdfs:range rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da"/>
+        <rdfs:subPropertyOf rdf:resource="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_2435e94c_f229_4d48_b5c0_1592bc975f70 -->
 
-    <owl:ObjectProperty rdf:about="&dm;OWLObjectProperty_2435e94c_f229_4d48_b5c0_1592bc975f70">
-        <rdfs:label xml:lang="en">song</rdfs:label>
-        <rdfs:domain rdf:resource="&dm;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
-        <rdfs:range rdf:resource="&dm;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93"/>
-        <rdfs:domain rdf:resource="&dm;OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728"/>
-        <rdfs:domain rdf:resource="&dm;OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da"/>
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_2435e94c_f229_4d48_b5c0_1592bc975f70">
+        <rdfs:label xml:lang="en">hasSong</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+        <rdfs:range rdf:resource="&dmusic;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da"/>
+        <rdfs:subPropertyOf rdf:resource="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_24d51c50_e452_450d_89df_7da8beda8418 -->
 
-    <owl:ObjectProperty rdf:about="&dm;OWLObjectProperty_24d51c50_e452_450d_89df_7da8beda8418">
-        <rdfs:label>performance_artist</rdfs:label>
-        <rdfs:range rdf:resource="&dm;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
-        <rdfs:domain rdf:resource="&dm;OWLClass_d1868838_f2d1_435e_9e24_ee5ff593e993"/>
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_24d51c50_e452_450d_89df_7da8beda8418">
+        <rdfs:label>hasPerformanceArtist</rdfs:label>
+        <rdfs:range rdf:resource="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_d1868838_f2d1_435e_9e24_ee5ff593e993"/>
+        <rdfs:subPropertyOf rdf:resource="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_42eb6111_add5_4b21_9b65_783bad26ef68 -->
 
-    <owl:ObjectProperty rdf:about="&dm;OWLObjectProperty_42eb6111_add5_4b21_9b65_783bad26ef68">
-        <rdfs:label xml:lang="en">lyric</rdfs:label>
-        <rdfs:range rdf:resource="&dm;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5"/>
-        <rdfs:domain rdf:resource="&dm;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93"/>
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_42eb6111_add5_4b21_9b65_783bad26ef68">
+        <rdfs:label xml:lang="en">hasLyric</rdfs:label>
+        <rdfs:range rdf:resource="&dmusic;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93"/>
+        <rdfs:subPropertyOf rdf:resource="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_50ec1173_c830_4e59_b108_c3d151e2dd08 -->
 
-    <owl:ObjectProperty rdf:about="&dm;OWLObjectProperty_50ec1173_c830_4e59_b108_c3d151e2dd08">
-        <rdfs:label xml:lang="en">agent</rdfs:label>
-        <rdfs:domain rdf:resource="&dm;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
-        <rdfs:range rdf:resource="&dm;OWLClass_9234b741_ca61_4ced_80c0_d9dafe1c2c01"/>
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_50ec1173_c830_4e59_b108_c3d151e2dd08">
+        <rdfs:label xml:lang="en">hasAgent</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+        <rdfs:range rdf:resource="&dmusic;OWLClass_9234b741_ca61_4ced_80c0_d9dafe1c2c01"/>
+        <rdfs:subPropertyOf rdf:resource="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_991b3f55_fc86_4f87_84a3_9b152fc94ae9 -->
 
-    <owl:ObjectProperty rdf:about="&dm;OWLObjectProperty_991b3f55_fc86_4f87_84a3_9b152fc94ae9">
-        <rdfs:label xml:lang="en">record_label</rdfs:label>
-        <rdfs:range rdf:resource="&dm;OWLClass_a9cae3a7_bbe2_4ac5_bef3_6d38c9d0bef7"/>
-        <rdfs:domain rdf:resource="&dm;OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da"/>
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_991b3f55_fc86_4f87_84a3_9b152fc94ae9">
+        <rdfs:label xml:lang="en">hasRecordLabel</rdfs:label>
+        <rdfs:range rdf:resource="&dmusic;OWLClass_a9cae3a7_bbe2_4ac5_bef3_6d38c9d0bef7"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da"/>
+        <rdfs:subPropertyOf rdf:resource="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_9c085a35_d49a_4278_8b28_9b2b25311f00 -->
 
-    <owl:ObjectProperty rdf:about="&dm;OWLObjectProperty_9c085a35_d49a_4278_8b28_9b2b25311f00">
-        <rdfs:label xml:lang="en">performance</rdfs:label>
-        <rdfs:domain rdf:resource="&dm;OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728"/>
-        <rdfs:range rdf:resource="&dm;OWLClass_d1868838_f2d1_435e_9e24_ee5ff593e993"/>
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_9c085a35_d49a_4278_8b28_9b2b25311f00">
+        <rdfs:label xml:lang="en">hasPerformance</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728"/>
+        <rdfs:range rdf:resource="&dmusic;OWLClass_d1868838_f2d1_435e_9e24_ee5ff593e993"/>
+        <rdfs:subPropertyOf rdf:resource="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_b630a2bd_5851_45c7_b890_f9af423c8953 -->
 
-    <owl:ObjectProperty rdf:about="&dm;OWLObjectProperty_b630a2bd_5851_45c7_b890_f9af423c8953">
-        <rdfs:label xml:lang="en">composer</rdfs:label>
-        <rdfs:range rdf:resource="&dm;OWLClass_0a490836_7adf_4b0b_a870_7c585da05064"/>
-        <rdfs:domain rdf:resource="&dm;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5"/>
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_b630a2bd_5851_45c7_b890_f9af423c8953">
+        <rdfs:label xml:lang="en">hasComposer</rdfs:label>
+        <rdfs:range rdf:resource="&dmusic;OWLClass_0a490836_7adf_4b0b_a870_7c585da05064"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5"/>
+        <rdfs:subPropertyOf rdf:resource="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_b9e5781a_81d5_44f5_9061_887ae7eb0799 -->
 
-    <owl:ObjectProperty rdf:about="&dm;OWLObjectProperty_b9e5781a_81d5_44f5_9061_887ae7eb0799">
-        <rdfs:label xml:lang="en">album</rdfs:label>
-        <rdfs:domain rdf:resource="&dm;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
-        <rdfs:range rdf:resource="&dm;OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da"/>
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_b9e5781a_81d5_44f5_9061_887ae7eb0799">
+        <rdfs:label xml:lang="en">hasAlbum</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+        <rdfs:range rdf:resource="&dmusic;OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da"/>
+        <rdfs:subPropertyOf rdf:resource="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLObjectProperty_bde77a53_6dbd_44b6_86ad_015b84db5932 -->
 
-    <owl:ObjectProperty rdf:about="&dm;OWLObjectProperty_bde77a53_6dbd_44b6_86ad_015b84db5932">
-        <rdfs:label xml:lang="en">artist</rdfs:label>
-        <rdfs:domain rdf:resource="&dm;OWLClass_4a63c85f_0440_4bf1_828d_67c92a5cd256"/>
-        <rdfs:range rdf:resource="&dm;OWLClass_995baabd_e571_4620_ba81_800c2cc434a7"/>
+    <owl:ObjectProperty rdf:about="&dmusic;OWLObjectProperty_bde77a53_6dbd_44b6_86ad_015b84db5932">
+        <rdfs:label xml:lang="en">hasArtist</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_4a63c85f_0440_4bf1_828d_67c92a5cd256"/>
+        <rdfs:range rdf:resource="&dmusic;OWLClass_995baabd_e571_4620_ba81_800c2cc434a7"/>
+        <rdfs:subPropertyOf rdf:resource="&dmusic;OWLObjectProperty_00fd9782_f7cd_4090_bbbe_16ae8ec47f64"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLDataProperty_41c494e4_c3a8_4da1_a53f_05ae91b6ebca -->
+
+    <owl:DatatypeProperty rdf:about="&dmusic;OWLDataProperty_41c494e4_c3a8_4da1_a53f_05ae91b6ebca">
+        <rdfs:label xml:lang="en">hasMusicbrainzId</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLDataProperty_41c706b3_7ed8_4e5e_86aa_24be0f6eab01 -->
+
+    <owl:DatatypeProperty rdf:about="&dmusic;OWLDataProperty_41c706b3_7ed8_4e5e_86aa_24be0f6eab01">
+        <rdfs:label xml:lang="en">hasName</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLDataProperty_b372ddd8_e6a0_4edd_ad36_b1ca689c379e -->
+
+    <owl:DatatypeProperty rdf:about="&dmusic;OWLDataProperty_b372ddd8_e6a0_4edd_ad36_b1ca689c379e">
+        <rdfs:label xml:lang="en">hasChartLyricsId</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLDataProperty_d588b05a_a4bc_4543_bff0_e534c1f81177 -->
+
+    <owl:DatatypeProperty rdf:about="&dmusic;OWLDataProperty_d588b05a_a4bc_4543_bff0_e534c1f81177">
+        <rdfs:label xml:lang="en">hasChecksum</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLDataProperty_e6779a3d_c8f2_4d61_a30d_74a94805ca36 -->
+
+    <owl:DatatypeProperty rdf:about="&dmusic;OWLDataProperty_e6779a3d_c8f2_4d61_a30d_74a94805ca36">
+        <rdfs:label xml:lang="en">hasUrl</rdfs:label>
+        <rdfs:domain rdf:resource="&dmusic;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -153,7 +235,7 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_027d9e2f_5137_4391_8475_51962343c362 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_027d9e2f_5137_4391_8475_51962343c362">
+    <owl:Class rdf:about="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362">
         <rdfs:label xml:lang="en">Artist</rdfs:label>
     </owl:Class>
     
@@ -161,7 +243,7 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_0a490836_7adf_4b0b_a870_7c585da05064 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_0a490836_7adf_4b0b_a870_7c585da05064">
+    <owl:Class rdf:about="&dmusic;OWLClass_0a490836_7adf_4b0b_a870_7c585da05064">
         <rdfs:label xml:lang="en">Composer</rdfs:label>
     </owl:Class>
     
@@ -169,7 +251,7 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41">
+    <owl:Class rdf:about="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41">
         <rdfs:label xml:lang="en">Genre</rdfs:label>
     </owl:Class>
     
@@ -177,7 +259,7 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5">
+    <owl:Class rdf:about="&dmusic;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5">
         <rdfs:label xml:lang="en">Lyric</rdfs:label>
     </owl:Class>
     
@@ -185,7 +267,7 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93">
+    <owl:Class rdf:about="&dmusic;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93">
         <rdfs:label xml:lang="en">Song</rdfs:label>
     </owl:Class>
     
@@ -193,16 +275,17 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_4a63c85f_0440_4bf1_828d_67c92a5cd256 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_4a63c85f_0440_4bf1_828d_67c92a5cd256">
+    <owl:Class rdf:about="&dmusic;OWLClass_4a63c85f_0440_4bf1_828d_67c92a5cd256">
         <rdfs:label xml:lang="en">GroupArtist</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dm;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+        <rdfs:subClassOf rdf:resource="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+        <owl:disjointWith rdf:resource="&dmusic;OWLClass_995baabd_e571_4620_ba81_800c2cc434a7"/>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_9234b741_ca61_4ced_80c0_d9dafe1c2c01 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_9234b741_ca61_4ced_80c0_d9dafe1c2c01">
+    <owl:Class rdf:about="&dmusic;OWLClass_9234b741_ca61_4ced_80c0_d9dafe1c2c01">
         <rdfs:label xml:lang="en">Agent</rdfs:label>
     </owl:Class>
     
@@ -210,9 +293,9 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_995baabd_e571_4620_ba81_800c2cc434a7 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_995baabd_e571_4620_ba81_800c2cc434a7">
+    <owl:Class rdf:about="&dmusic;OWLClass_995baabd_e571_4620_ba81_800c2cc434a7">
         <rdfs:label xml:lang="en">IndividualArtist</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&dm;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+        <rdfs:subClassOf rdf:resource="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
         <rdfs:subClassOf rdf:resource="&foaf;Person"/>
     </owl:Class>
     
@@ -220,7 +303,7 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_a9cae3a7_bbe2_4ac5_bef3_6d38c9d0bef7 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_a9cae3a7_bbe2_4ac5_bef3_6d38c9d0bef7">
+    <owl:Class rdf:about="&dmusic;OWLClass_a9cae3a7_bbe2_4ac5_bef3_6d38c9d0bef7">
         <rdfs:label xml:lang="en">RecordLabel</rdfs:label>
     </owl:Class>
     
@@ -228,7 +311,7 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728">
+    <owl:Class rdf:about="&dmusic;OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728">
         <rdfs:label xml:lang="en">Concert</rdfs:label>
     </owl:Class>
     
@@ -236,7 +319,7 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da -->
 
-    <owl:Class rdf:about="&dm;OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da">
+    <owl:Class rdf:about="&dmusic;OWLClass_cf10cf7d_7f1e_4e81_b5f9_24be80ef35da">
         <rdfs:label xml:lang="en">Album</rdfs:label>
     </owl:Class>
     
@@ -244,9 +327,199 @@
 
     <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLClass_d1868838_f2d1_435e_9e24_ee5ff593e993 -->
 
-    <owl:Class rdf:about="&dm;OWLClass_d1868838_f2d1_435e_9e24_ee5ff593e993">
+    <owl:Class rdf:about="&dmusic;OWLClass_d1868838_f2d1_435e_9e24_ee5ff593e993">
         <rdfs:label xml:lang="en">Performance</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_051d1097_6143_430a_a877_17d382c2c2a5 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_051d1097_6143_430a_a877_17d382c2c2a5">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Rap</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_0c68f602_e550_4e4f_b6d1_7e354729da6c -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_0c68f602_e550_4e4f_b6d1_7e354729da6c">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Folk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_0d3c8c10_82f1_4825_8ee8_2fbf38b04dda -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_0d3c8c10_82f1_4825_8ee8_2fbf38b04dda">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Opera</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_188d19e7_f99c_49a5_b18c_0d984b96aeaa -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_188d19e7_f99c_49a5_b18c_0d984b96aeaa">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Avant-Garde</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_1ab0a1b8_d1f3_48c9_be98_47c6a4a94c0b -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_1ab0a1b8_d1f3_48c9_be98_47c6a4a94c0b">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Heavy Metal</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_1f247dcf_8980_43a8_9ec3_c92adc8c67be -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_1f247dcf_8980_43a8_9ec3_c92adc8c67be">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Blues</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_28d3ad9c_b1e8_42c9_af76_24c5706ab03d -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_28d3ad9c_b1e8_42c9_af76_24c5706ab03d">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">House</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_5d739807_1486_44ec_b644_585b1d985dad -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_5d739807_1486_44ec_b644_585b1d985dad">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Pop</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_61b45249_50c3_48e6_9ae5_ade06753a323 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_61b45249_50c3_48e6_9ae5_ade06753a323">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Indie Rock</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_6c60d454_1450_4d07_ba75_2c87b5b80dcb -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_6c60d454_1450_4d07_ba75_2c87b5b80dcb">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Dubstep</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_6fdcd9e4_f3c4_4384_b172_737083db5b63 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_6fdcd9e4_f3c4_4384_b172_737083db5b63">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Jazz</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_714dc58e_0bb6_4a13_8873_eba9d654ed7b -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_714dc58e_0bb6_4a13_8873_eba9d654ed7b">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Trance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_7c35bfbb_7149_452b_811a_f7d99dbf0df6 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_7c35bfbb_7149_452b_811a_f7d99dbf0df6">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Electronic</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_97b333a7_0148_49af_b367_19d79c515d66 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_97b333a7_0148_49af_b367_19d79c515d66">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Country</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_9d6b0cb4_2a8c_41e6_818f_6cba1a617d24 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_9d6b0cb4_2a8c_41e6_818f_6cba1a617d24">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Hip Hop</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#OWLNamedIndividual_c304695f_0722_405b_b0c6_9e32ca3f01d0 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;OWLNamedIndividual_c304695f_0722_405b_b0c6_9e32ca3f01d0">
+        <rdf:type rdf:resource="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+        <rdfs:label xml:lang="en">Rock</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&dmusic;OWLClass_0a490836_7adf_4b0b_a870_7c585da05064"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_a9cae3a7_bbe2_4ac5_bef3_6d38c9d0bef7"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_d1868838_f2d1_435e_9e24_ee5ff593e993"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&dmusic;OWLClass_027d9e2f_5137_4391_8475_51962343c362"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_0cf5d29a_1b3b_4cb8_8fb8_dd9897baeb41"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_1b86b3ed_dfb1_4222_bd12_f554e6909ed5"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_33aabc72_b540_4d39_8c07_4464debfdb93"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_a9cae3a7_bbe2_4ac5_bef3_6d38c9d0bef7"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_aefa45fc_9cdd_4b21_add3_623ad046c728"/>
+            <rdf:Description rdf:about="&dmusic;OWLClass_d1868838_f2d1_435e_9e24_ee5ff593e993"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
