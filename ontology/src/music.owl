@@ -84,12 +84,18 @@
 
     <owl:ObjectProperty rdf:about="&dmusic;hasGenre">
         <rdfs:label xml:lang="en">hasGenre</rdfs:label>
-        <rdfs:domain rdf:resource="&dmusic;Album"/>
-        <rdfs:domain rdf:resource="&dmusic;Artist"/>
-        <rdfs:domain rdf:resource="&dmusic;Concert"/>
         <rdfs:range rdf:resource="&dmusic;Genre"/>
-        <rdfs:domain rdf:resource="&dmusic;Song"/>
         <rdfs:subPropertyOf rdf:resource="&dmusic;musicProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&dmusic;Album"/>
+                    <rdf:Description rdf:about="&dmusic;Artist"/>
+                    <rdf:Description rdf:about="&dmusic;Concert"/>
+                    <rdf:Description rdf:about="&dmusic;Song"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -142,11 +148,17 @@
 
     <owl:ObjectProperty rdf:about="&dmusic;hasSong">
         <rdfs:label xml:lang="en">hasSong</rdfs:label>
-        <rdfs:domain rdf:resource="&dmusic;Album"/>
-        <rdfs:domain rdf:resource="&dmusic;Artist"/>
-        <rdfs:domain rdf:resource="&dmusic;Concert"/>
         <rdfs:range rdf:resource="&dmusic;Song"/>
         <rdfs:subPropertyOf rdf:resource="&dmusic;musicProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&dmusic;Album"/>
+                    <rdf:Description rdf:about="&dmusic;Artist"/>
+                    <rdf:Description rdf:about="&dmusic;Concert"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -194,9 +206,15 @@
 
     <owl:DatatypeProperty rdf:about="&dmusic;hasMusicbrainzId">
         <rdfs:label xml:lang="en">hasMusicbrainzId</rdfs:label>
-        <rdfs:domain rdf:resource="&dmusic;Artist"/>
-        <rdfs:domain rdf:resource="&dmusic;Song"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&dmusic;Artist"/>
+                    <rdf:Description rdf:about="&dmusic;Song"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -205,9 +223,15 @@
 
     <owl:DatatypeProperty rdf:about="&dmusic;hasName">
         <rdfs:label xml:lang="en">hasName</rdfs:label>
-        <rdfs:domain rdf:resource="&dmusic;Artist"/>
-        <rdfs:domain rdf:resource="&dmusic;Song"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&dmusic;Artist"/>
+                    <rdf:Description rdf:about="&dmusic;Song"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
