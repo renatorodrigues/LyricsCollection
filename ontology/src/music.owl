@@ -5,6 +5,7 @@
     <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY event "http://purl.org/NET/c4dm/event.owl#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY dmusic "http://www.semanticweb.org/dapi/ontologies/music#" >
@@ -15,11 +16,13 @@
      xml:base="http://www.semanticweb.org/dapi/ontologies/music"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:event="http://purl.org/NET/c4dm/event.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:dmusic="http://www.semanticweb.org/dapi/ontologies/music#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/dapi/ontologies/music">
+        <owl:imports rdf:resource="http://purl.org/NET/c4dm/event.owl"/>
         <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
     </owl:Ontology>
     
@@ -39,6 +42,9 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasAgent -->
 
     <owl:ObjectProperty rdf:about="&dmusic;hasAgent">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasAgent</rdfs:label>
         <rdfs:range rdf:resource="&dmusic;Agent"/>
         <rdfs:domain rdf:resource="&dmusic;Artist"/>
@@ -50,6 +56,8 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasAlbum -->
 
     <owl:ObjectProperty rdf:about="&dmusic;hasAlbum">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasAlbum</rdfs:label>
         <rdfs:range rdf:resource="&dmusic;Album"/>
         <rdfs:domain rdf:resource="&dmusic;Artist"/>
@@ -61,10 +69,14 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasArtist -->
 
     <owl:ObjectProperty rdf:about="&dmusic;hasArtist">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasArtist</rdfs:label>
         <rdfs:domain rdf:resource="&dmusic;GroupArtist"/>
         <rdfs:range rdf:resource="&dmusic;IndividualArtist"/>
         <rdfs:subPropertyOf rdf:resource="&dmusic;musicProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&foaf;member"/>
     </owl:ObjectProperty>
     
 
@@ -72,6 +84,9 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasComposer -->
 
     <owl:ObjectProperty rdf:about="&dmusic;hasComposer">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasComposer</rdfs:label>
         <rdfs:range rdf:resource="&dmusic;Composer"/>
         <rdfs:domain rdf:resource="&dmusic;Lyric"/>
@@ -83,6 +98,8 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasGenre -->
 
     <owl:ObjectProperty rdf:about="&dmusic;hasGenre">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasGenre</rdfs:label>
         <rdfs:range rdf:resource="&dmusic;Genre"/>
         <rdfs:subPropertyOf rdf:resource="&dmusic;musicProperty"/>
@@ -103,6 +120,9 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasLyric -->
 
     <owl:ObjectProperty rdf:about="&dmusic;hasLyric">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasLyric</rdfs:label>
         <rdfs:range rdf:resource="&dmusic;Lyric"/>
         <rdfs:domain rdf:resource="&dmusic;Song"/>
@@ -114,6 +134,8 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasPerformance -->
 
     <owl:ObjectProperty rdf:about="&dmusic;hasPerformance">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasPerformance</rdfs:label>
         <rdfs:domain rdf:resource="&dmusic;Concert"/>
         <rdfs:range rdf:resource="&dmusic;Performance"/>
@@ -125,6 +147,9 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasPerformanceArtist -->
 
     <owl:ObjectProperty rdf:about="&dmusic;hasPerformanceArtist">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label>hasPerformanceArtist</rdfs:label>
         <rdfs:range rdf:resource="&dmusic;Artist"/>
         <rdfs:domain rdf:resource="&dmusic;Performance"/>
@@ -136,6 +161,9 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasRecordLabel -->
 
     <owl:ObjectProperty rdf:about="&dmusic;hasRecordLabel">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasRecordLabel</rdfs:label>
         <rdfs:domain rdf:resource="&dmusic;Album"/>
         <rdfs:range rdf:resource="&dmusic;RecordLabel"/>
@@ -147,6 +175,8 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasSong -->
 
     <owl:ObjectProperty rdf:about="&dmusic;hasSong">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasSong</rdfs:label>
         <rdfs:range rdf:resource="&dmusic;Song"/>
         <rdfs:subPropertyOf rdf:resource="&dmusic;musicProperty"/>
@@ -185,6 +215,7 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasChartLyricsId -->
 
     <owl:DatatypeProperty rdf:about="&dmusic;hasChartLyricsId">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">hasChartLyricsId</rdfs:label>
         <rdfs:domain rdf:resource="&dmusic;Lyric"/>
         <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
@@ -195,6 +226,7 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasChecksum -->
 
     <owl:DatatypeProperty rdf:about="&dmusic;hasChecksum">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">hasChecksum</rdfs:label>
         <rdfs:domain rdf:resource="&dmusic;Lyric"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -205,6 +237,7 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasMusicbrainzId -->
 
     <owl:DatatypeProperty rdf:about="&dmusic;hasMusicbrainzId">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">hasMusicbrainzId</rdfs:label>
         <rdfs:range rdf:resource="&xsd;string"/>
         <rdfs:domain>
@@ -222,6 +255,7 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasName -->
 
     <owl:DatatypeProperty rdf:about="&dmusic;hasName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">hasName</rdfs:label>
         <rdfs:range rdf:resource="&xsd;string"/>
         <rdfs:domain>
@@ -239,6 +273,7 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#hasUrl -->
 
     <owl:DatatypeProperty rdf:about="&dmusic;hasUrl">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">hasUrl</rdfs:label>
         <rdfs:domain rdf:resource="&dmusic;Lyric"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
@@ -269,6 +304,12 @@
 
     <owl:Class rdf:about="&dmusic;Album">
         <rdfs:label xml:lang="en">Album</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dmusic;hasSong"/>
+                <owl:someValuesFrom rdf:resource="&dmusic;Song"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -277,6 +318,20 @@
 
     <owl:Class rdf:about="&dmusic;Artist">
         <rdfs:label xml:lang="en">Artist</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&dmusic;GroupArtist"/>
+                    <rdf:Description rdf:about="&dmusic;IndividualArtist"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dmusic;hasAgent"/>
+                <owl:allValuesFrom rdf:resource="&dmusic;Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -285,6 +340,7 @@
 
     <owl:Class rdf:about="&dmusic;Composer">
         <rdfs:label xml:lang="en">Composer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Person"/>
     </owl:Class>
     
 
@@ -293,6 +349,7 @@
 
     <owl:Class rdf:about="&dmusic;Concert">
         <rdfs:label xml:lang="en">Concert</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&event;Event"/>
     </owl:Class>
     
 
@@ -310,6 +367,14 @@
     <owl:Class rdf:about="&dmusic;GroupArtist">
         <rdfs:label xml:lang="en">GroupArtist</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dmusic;Artist"/>
+        <rdfs:subClassOf rdf:resource="&foaf;Group"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dmusic;hasArtist"/>
+                <owl:onClass rdf:resource="&dmusic;IndividualArtist"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="&dmusic;IndividualArtist"/>
     </owl:Class>
     
@@ -345,6 +410,7 @@
 
     <owl:Class rdf:about="&dmusic;RecordLabel">
         <rdfs:label xml:lang="en">RecordLabel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
     </owl:Class>
     
 
