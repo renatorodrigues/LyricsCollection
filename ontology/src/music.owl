@@ -44,7 +44,6 @@
     <owl:ObjectProperty rdf:about="&dmusic;hasAgent">
         <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasAgent</rdfs:label>
         <rdfs:range rdf:resource="&dmusic;Agent"/>
@@ -72,7 +71,6 @@
 
     <owl:ObjectProperty rdf:about="&dmusic;hasArtist">
         <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasArtist</rdfs:label>
         <rdfs:domain rdf:resource="&dmusic;GroupArtist"/>
@@ -178,7 +176,6 @@
 
     <owl:ObjectProperty rdf:about="&dmusic;hasSong">
         <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
-        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
         <rdfs:label xml:lang="en">hasSong</rdfs:label>
         <rdfs:range rdf:resource="&dmusic;Song"/>
@@ -316,7 +313,8 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&dmusic;hasSong"/>
-                <owl:someValuesFrom rdf:resource="&dmusic;Song"/>
+                <owl:onClass rdf:resource="&dmusic;Song"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -335,12 +333,6 @@
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&dmusic;hasAgent"/>
-                <owl:allValuesFrom rdf:resource="&dmusic;Agent"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -411,6 +403,20 @@
 
     <owl:Class rdf:about="&dmusic;Performance">
         <rdfs:label xml:lang="en">Performance</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dmusic;hasPerformanceArtist"/>
+                <owl:onClass rdf:resource="&dmusic;Artist"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dmusic;hasSong"/>
+                <owl:onClass rdf:resource="&dmusic;Song"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
