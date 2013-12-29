@@ -204,6 +204,7 @@
     <!-- http://www.semanticweb.org/dapi/ontologies/music#subGenreOf -->
 
     <owl:ObjectProperty rdf:about="&dmusic;subGenreOf">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
         <rdf:type rdf:resource="&owl;ReflexiveProperty"/>
         <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:range rdf:resource="&dmusic;Genre"/>
