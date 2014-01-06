@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://purl.org/NET/c4dm/event.owl" uri="http://motools.sourceforge.net/event/event.n3"/>
     <uri id="Imports Wizard Entry" name="http://xmlns.com/foaf/0.1/" uri="http://xmlns.com/foaf/spec/index.rdf"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1387815979177" name="file:///C:/Users/Eduardo/Desktop/d2rq-0.8.1/out.rdf#" uri="music.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1387815979177" name="http://www.semanticweb.org/dapi/ontologies/music" uri="music.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1388312187918" name="file:///C:/Users/Eduardo/Desktop/d2rq-0.8.1/out.rdf#" uri="music.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1388312187918" name="http://www.semanticweb.org/dapi/ontologies/music" uri="music.owl"/>
     </group>
 </catalog>
