@@ -418,15 +418,15 @@
         <rdfs:label xml:lang="en">Performance</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dmusic;hasPerformanceArtist"/>
-                <owl:onClass rdf:resource="&dmusic;Artist"/>
+                <owl:onProperty rdf:resource="&dmusic;hasSong"/>
+                <owl:onClass rdf:resource="&dmusic;Song"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&dmusic;hasSong"/>
-                <owl:onClass rdf:resource="&dmusic;Song"/>
+                <owl:onProperty rdf:resource="&dmusic;hasPerformanceArtist"/>
+                <owl:onClass rdf:resource="&dmusic;Artist"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -471,11 +471,28 @@
     
 
 
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#BlackMetal -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;BlackMetal">
+        <rdf:type rdf:resource="&dmusic;Genre"/>
+        <subGenreOf rdf:resource="&dmusic;HeavyMetal"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/dapi/ontologies/music#Blues -->
 
     <owl:NamedIndividual rdf:about="&dmusic;Blues">
         <rdf:type rdf:resource="&dmusic;Genre"/>
         <rdfs:label xml:lang="en">Blues</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#ChristianMetal -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;ChristianMetal">
+        <subGenreOf rdf:resource="&dmusic;HeavyMetal"/>
     </owl:NamedIndividual>
     
 
@@ -494,6 +511,16 @@
     <owl:NamedIndividual rdf:about="&dmusic;Dubstep">
         <rdf:type rdf:resource="&dmusic;Genre"/>
         <rdfs:label xml:lang="en">Dubstep</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#EMI -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;EMI">
+        <rdf:type rdf:resource="&dmusic;RecordLabel"/>
+        <worksWith rdf:resource="&dmusic;art1"/>
+        <worksWith rdf:resource="&dmusic;art3"/>
     </owl:NamedIndividual>
     
 
@@ -521,6 +548,7 @@
     <owl:NamedIndividual rdf:about="&dmusic;HeavyMetal">
         <rdf:type rdf:resource="&dmusic;Genre"/>
         <rdfs:label xml:lang="en">Heavy Metal</rdfs:label>
+        <subGenreOf rdf:resource="&dmusic;Rock"/>
     </owl:NamedIndividual>
     
 
@@ -548,6 +576,7 @@
     <owl:NamedIndividual rdf:about="&dmusic;IndieRock">
         <rdf:type rdf:resource="&dmusic;Genre"/>
         <rdfs:label xml:lang="en">Indie Rock</rdfs:label>
+        <subGenreOf rdf:resource="&dmusic;Rock"/>
     </owl:NamedIndividual>
     
 
@@ -602,6 +631,60 @@
     <owl:NamedIndividual rdf:about="&dmusic;Trance">
         <rdf:type rdf:resource="&dmusic;Genre"/>
         <rdfs:label xml:lang="en">Trance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#art1 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;art1">
+        <rdf:type rdf:resource="&dmusic;IndividualArtist"/>
+        <hasGenre rdf:resource="&dmusic;IndieRock"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#art2 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;art2">
+        <rdf:type rdf:resource="&dmusic;IndividualArtist"/>
+        <hasGenre rdf:resource="&dmusic;BlackMetal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#art3 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;art3">
+        <rdf:type rdf:resource="&dmusic;IndividualArtist"/>
+        <hasGenre rdf:resource="&dmusic;Rock"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#song1 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;song1">
+        <rdf:type rdf:resource="&dmusic;Song"/>
+        <hasGenre rdf:resource="&dmusic;Rock"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#song2 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;song2">
+        <rdf:type rdf:resource="&dmusic;Song"/>
+        <hasGenre rdf:resource="&dmusic;ChristianMetal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dapi/ontologies/music#song3 -->
+
+    <owl:NamedIndividual rdf:about="&dmusic;song3">
+        <rdf:type rdf:resource="&dmusic;Song"/>
+        <hasGenre rdf:resource="&dmusic;House"/>
     </owl:NamedIndividual>
     
 
